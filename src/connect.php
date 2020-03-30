@@ -7,7 +7,7 @@ $db = "test";
 
 // Check if connection was successful
 try   {
-     $handle = new PDO("mysql:host=$server;dbname=$db", "$usernmae","$password");
+     $handle = mysql:host=$server;dbname=$db", "$usernmae","$password");
      $handle->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
      echo "connected";
 
