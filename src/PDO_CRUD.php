@@ -1,9 +1,9 @@
 <?php
 class CRUD {
-	public $host = 'localhost';
+	public $host = 'localhost:3307';
 	public $database = 'users';
 	public $username = 'root';
-	public $password = '';
+	public $password = '123456';
 	function PDOCreateDB (){
 		$dsn ='mysql:host='. $this->host;
 		$pdo = new PDO($dsn, $this->username, $this->password);
@@ -26,7 +26,7 @@ class CRUD {
 		$sql = 'INSERT INTO `user_list` (`id`, `firstname`, `lastname`) VALUES (:id,:firstname,:lastname)';
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute(['id'=>NULL,'firstname'=>$_POST['firstname'],'lastname'=>$_POST['lastname']]);
-		header("Location: http://localhost/loginp.php");
+		headerhttp:("Location: http://localhost:8080/php-login/src/loginp.php");
 		exit();
 	}
 	function PDOReadUser (){
@@ -34,7 +34,7 @@ class CRUD {
 		$pdo = new PDO($dsn, $this->username, $this->password);
 		$sql = 'SELECT * FROM user_list';
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
+		$stmt->execute(['id'=>NULL,'firstname'=>$_POST['firstname'],'lastname'=>$_POST['lastname']]);
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 		echo $row['id'] . "|" . $row['firstname'] . "|" . $row['lastname'] . "<hr>";
 		}
@@ -43,9 +43,9 @@ class CRUD {
 	function PDOUpdateUser (){
 		$dsn ='mysql:host='. $this->host.';dbname='.$this->database;
 		$pdo = new PDO($dsn, $this->username, $this->password);
-		$sql = "UPDATE user_list SET firstname = '$this->host', lastname = '$this->host' WHERE id = '2338'";
+		$sql = "UPDATE user_list SET firstname = :firstname, lastname = :lastname WHERE id = '2338'";
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
+		$stmt->execute(['id'=>NULL,'firstname'=>$_POST['firstname'],'lastname'=>$_POST['lastname']]);
 		$pdo->connection=null;
 	}
 	function PDODeleteUser (){
@@ -53,7 +53,7 @@ class CRUD {
 		$pdo = new PDO($dsn, $this->username, $this->password);
 		$sql = "DELETE  FROM user_list WHERE id='2338'";
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
+		$stmt->execute(['id'=>NULL,'firstname'=>$_POST['firstname'],'lastname'=>$_POST['lastname']]);
 		$pdo->connection=null;
 	}
 }
