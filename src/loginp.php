@@ -1,22 +1,22 @@
-<?php
-	include "PDO_CRUD.php";
-	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addUser'])){
-		$connect->PDOCreateUser();
-	}
-	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['ReadUser'])){
-		$connect->PDOReadUser();
-	}
-	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['UpdateUser'])){
-		$connect->PDOUpdateUser();
-	}
-	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['DeleteUser'])){
-		$connect->PDODeleteUser();
-	}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login Page</title>
+	<?php
+		include "PDO_CRUD.php";
+		if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addUser'])){
+			$connect->PDOCreateUser();
+		}
+		if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['ReadUser'])){
+			$connect->PDOReadUser();
+		}
+		if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['UpdateUser'])){
+			$connect->PDOUpdateUser();
+		}
+		if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['DeleteUser'])){
+			$connect->PDODeleteUser();
+		}
+	?>
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Login Page</title>
 </head>
 <body>
 	<form action="" method="POST">

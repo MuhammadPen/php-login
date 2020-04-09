@@ -34,7 +34,7 @@ class CRUD {
 		$pdo = new PDO($dsn, $this->username, $this->password);
 		$sql = 'SELECT * FROM user_list';
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute(['id'=>NULL,'firstname'=>$_POST['firstname'],'lastname'=>$_POST['lastname']]);
+		$stmt->execute();
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 		echo $row['id'] . "|" . $row['firstname'] . "|" . $row['lastname'] . "<hr>";
 		}
@@ -51,9 +51,9 @@ class CRUD {
 	function PDODeleteUser (){
 		$dsn ='mysql:host='. $this->host.';dbname='.$this->database;
 		$pdo = new PDO($dsn, $this->username, $this->password);
-		$sql = "DELETE  FROM user_list WHERE id='2338'";
+		$sql = "DELETE FROM user_list WHERE id='2338'";
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute(['id'=>NULL,'firstname'=>$_POST['firstname'],'lastname'=>$_POST['lastname']]);
+		$stmt->execute();
 		$pdo->connection=null;
 	}
 }
